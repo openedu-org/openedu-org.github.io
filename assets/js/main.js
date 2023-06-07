@@ -41,6 +41,33 @@ function scrollActive(){
     })
 }
 
+function scrollActive() {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 50;
+    const sectionId = current.getAttribute("id"); // Add 'const' here to declare sectionId
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      const activeLink = document.querySelector(
+        '.nav__menu a[href*="' + sectionId + '"]'
+      );
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+    } else {
+      const inactiveLink = document.querySelector(
+        '.nav__menu a[href*="' + sectionId + '"]'
+      );
+      if (inactiveLink) {
+        inactiveLink.classList.remove("active");
+      }
+    }
+  });
+}
+
+
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
