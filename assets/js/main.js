@@ -84,5 +84,8 @@ joinBtn.addEventListener('click', function() {
 });
 
 
+const joinML = document.querySelector('.join-btn-ml');
 
-
+joinML.addEventListener('click', function() {
+    window.open('https://forms.gle/B7ucKQzWmqccnyge8', '_blank');
+  });
